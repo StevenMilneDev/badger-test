@@ -1,0 +1,19 @@
+on: 
+  pull_request:
+    types: [opened]
+
+jobs:
+  pr-description:
+    runs-on: ubuntu-latest
+    name: Update PR Description
+    steps:
+    - name: Add Badges
+      id: badger
+      uses: StevenMilneDev/badger@v1.0.2
+      env:
+        TEST_DOMAIN: example.dev
+        TRELLO_CARD: Untitled Card
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        badge-01: 'Test Environment: {{branch}}.{{TEST_DOMAIN}} (link=https://{{branch}}.{{TEST_DOMAIN}}/)(logo=googleChrome)(logoColor=white)(labelColor=blue)'
+        badge-02: 'Trello: {{trello.card}} (link={{trello.url}})(logo=trello)(logoColor=white)(labelColor=blue)'
