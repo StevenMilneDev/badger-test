@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Add Badges
       id: badger
-      uses: StevenMilneDev/badger@refactor
+      uses: StevenMilneDev/badger@1.0.7
       env:
         TEST_DOMAIN: example.dev
         TRELLO_CARD: Untitled Card
